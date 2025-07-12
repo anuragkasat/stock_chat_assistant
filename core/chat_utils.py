@@ -3,12 +3,12 @@ matplotlib.use('Agg')
 import io
 import base64
 import yfinance as yf
-import matplotlib.pyplot as plt
 from transformers import pipeline
 
 # Helper to fetch stock data and plot technical curve
 
 def fetch_and_plot_stock(ticker):
+    import matplotlib.pyplot as plt  # Lazy import
     data = yf.download(ticker, period='6mo', interval='1d')
     if data.empty:
         return None, None
